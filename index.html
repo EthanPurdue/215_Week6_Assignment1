@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Were you ever unable to decide what to have for dinner? Struggle no more.
+      Simply build up the entrees in the JavaScript code, and whenever you can't
+      decide, just click the button!
+    </p>
+
+    <button onclick="randomMeal()">Luck Of The Draw Meal</button>
+
+    <p class="randomMeal"></p>
+
+    <script>
+      const entree1 = {
+        starter: "Bacon Cheese Fries",
+        main: "Beef Burger and Coleslaw",
+        dessert: "Deep Fried Ice-Cream",
+      };
+
+      const entree2 = {
+        starter: "Smoked Salmon On Rye",
+        main: "Vegetarian Couscous Rolls",
+        dessert: "Fruit Plate",
+      };
+
+      const entree3 = {
+        starter: "Chips and Hummus",
+        main: "Grilled Chicken in Hot Sauce",
+        dessert: "Chocolate Ganache Cake",
+      };
+
+      // create 2 extra entrees, made filler text, focus was just to have more entrees to choose from
+      const entree4 = {
+        starter: "Example1 Starter",
+        main: "Example1 main",
+        dessert: "Example1 Desert",
+      };
+
+      const entree5 = {
+        starter: "Example2 Starter",
+        main: "Example2 main",
+        dessert: "Example2 Desert",
+      };
+
+      //  we have already defined what the entrees are, now we put them in the array so we can access them easily
+      let meals = [entree1, entree2, entree3, entree4, entree5];
+
+      // function gets a random number within a given array
+      const randomMeal = function () {
+        // Get a random number between 0 and the length of the array, meals
+        let mealNumber = Math.floor(Math.random() * meals.length);
+        console.log(mealNumber);
+        showMeal(mealNumber);
+      };
+
+      // function takes mealNumber as a parameter, and take corresponding meal for number and display it
+      // we display is using the str variable, and because declared within function, display it within function
+      const showMeal = (mealNumber) => {
+        let str = `Start with ${meals[mealNumber].starter},
+                followed by ${meals[mealNumber].main},
+                and finish off your meal with ${meals[mealNumber].dessert}`;
+        let area = document.querySelector(".randomMeal");
+        area.innerHTML = `${str}`;
+      };
+
+      // if we were to get a random number 3, because it's 0 based that would be entree4, and because
+      //  we have already defined it outside of the array we can still access its contents easily
+    </script>
+  </body>
+</html>
